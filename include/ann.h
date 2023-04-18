@@ -512,6 +512,10 @@ void ApplyFunctionToMatrix(Matrix &a, ActFunc AF);
  * ********************************************************************/
 void AddBiasVectorToMatrix(Matrix &a, Matrix &b);
 
+/* these typedefs will be used so that we can switch cost functions */
+typedef double (*CostFunc)(Matrix&,Matrix&,MatrixArray&,double, double);
+typedef double (*CostFuncDelta)(Matrix&,Matrix&,ActFunc,Matrix&);
+
 /***********************************************************************
  * NAME : 	void BackPropagate(w,b,Deltas,a,y,AFGrad,CFDelta,L1,L2,wGrad,bGrad)
  * 
@@ -747,9 +751,7 @@ double meanSquaredCost(Matrix &h, Matrix &y, MatrixArray &w, double L1, double L
  ******************************************************************/
 void meanSquaredDelta(Matrix &h, Matrix &y, ActFunc InvAFGrad, Matrix &Deltas);
 
-/* these typedefs will be used so that we can switch cost functions */
-typedef double (*CostFunc)(Matrix&,Matrix&,MatrixArray&,double, double);
-typedef double (*CostFuncDelta)(Matrix&,Matrix&,ActFunc,Matrix&);
+
 
 
 class Network {
