@@ -72,15 +72,13 @@ NetworkFunc::NetworkFunc(int L, int *s, const char * sHiddenFunc,
 }
 
 /***********************************************************************
- * NAME : NetworkFunc(L,s,sHiddenFunc,sOutFunc,sCostFunc)
+ * NAME : NetworkFunc(ptr,sHiddenFunc,sOutFunc,sCostFunc)
  * 
  * DESCRIPTION : This is the constructor for the NetworkFunc object, 
  * 				which will load the ANN from memory.
  * 
  * INPUTS : 
- * 		int			L		The number of layers in the network.
- * 		int			*s		Array containing the number of nodes in each
- * 							layer.
+ * 		unsigned char *ptr			pointer to memory location to read
  *		const char	*sHiddenFunc	String naming the activation 
  * 									functions used in each hidden layer.
  * 									"sigmoid"|"relu"|"linear"|"softplus"
@@ -124,6 +122,50 @@ NetworkFunc::NetworkFunc(unsigned char *ptr, const char * sHiddenFunc,
 	/* get the activation functions */
 	_PopulateActivationFunctions(sHiddenFunc,sOutFunc);
 	
+}
+
+
+
+/***********************************************************************
+ * NAME : NetworkFunc(FileName,sHiddenFunc,sOutFunc,sCostFunc)
+ * 
+ * DESCRIPTION : This is the constructor for the NetworkFunc object, 
+ * 				which will load the ANN from a binary file.
+ * 
+ * INPUTS : 
+ * 		unsigned char *ptr			pointer to memory location to read
+ *		const char	*sHiddenFunc	String naming the activation 
+ * 									functions used in each hidden layer.
+ * 									"sigmoid"|"relu"|"linear"|"softplus"
+ * 									|"tanh"
+ *		const char 	*sOutFunc		String naming the activation
+ * 									function used in the output layer.
+ * 		const char	*sCostFunction	String naming the cost function used
+ * 									although this is not actually needed
+ * 									in this object currently.
+ * 									"mean_squared"|"cross_entropy"
+ * 
+ * 
+ * ********************************************************************/
+NetworkFunc::NetworkFunc(const char *FileName, const char * sHiddenFunc,
+						const char *sOutFunc, const char *sCostFunc) {
+							
+	/* read file in */
+	FILE *f = fopen(FileName,"rb");
+	int len;
+	unsigned char *ptr;
+	fseek(f,0,SEEK_END);
+	len = ftell(f);
+	fseek(f,0,SEEK_SET);
+	ptr = new unsigned char[len];
+	fread(ptr,len,1,f);
+	fclose(f);
+
+	/* use other function to extract data */
+	NetworkFunc(ptr,sHiddenFunc,sOutFunc,sCostFunc);
+
+	/* free memory */
+	delete[] ptr;
 }
 
 /***********************************************************************

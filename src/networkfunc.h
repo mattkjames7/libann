@@ -24,7 +24,7 @@ class NetworkFunc {
 		NetworkFunc(unsigned char*, const char*, const char*, const char*);
 		
 		/*or file*/
-		//NetworkFunc(const char*,  const char*, const char*, const char*);
+		NetworkFunc(const char*,  const char*, const char*, const char*);
 		
 		/* or a blank one*/
 		NetworkFunc(int, int*, const char*,const char *, const char*);
