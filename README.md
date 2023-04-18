@@ -20,7 +20,7 @@ This code can be included in other C++ projects:
 ```cpp
 #include <ann.h>
 ```
-and compile with the ```-lann -lomp -lm``` flags.
+and compile with the ```-lann -lfopenmp -lm``` flags.
 
 The main purpose of this library is to run neural networks which are already trained. It can open trained neural networks created by [NNFunction](https://github.com/mattkjames7/NNFunction) (see below for file format description). It may even be able to train new ones, if not now, then when the code is finished...
 
