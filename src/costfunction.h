@@ -7,7 +7,6 @@
 #include "regularization.h"
 #include "activationfunctions.h"
 #include "matrixmath.h"
-using namespace std;
 
 
 /*******************************************************************

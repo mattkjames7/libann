@@ -6,7 +6,6 @@
 #include "matrix.h"
 #include "matrixarray.h"
 #include <omp.h>
-using namespace std;
 
 /***********************************************************************
  * NAME : 	float L1Regularization(w,L1,m)

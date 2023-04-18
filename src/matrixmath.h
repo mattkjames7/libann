@@ -6,7 +6,6 @@
 #include "matrix.h"
 #include <omp.h>
 #include "activationfunctions.h"
-using namespace std;
 
 /***********************************************************************
  * NAME : 			MatrixMultiply(a,b,aT,bT,out)

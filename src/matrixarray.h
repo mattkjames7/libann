@@ -5,7 +5,6 @@
 #include <ctime>
 #include <cstdlib>
 #include "matrix.h"
-using namespace std;
 
 /***********************************************************************
  * NAME : Matrix

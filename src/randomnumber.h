@@ -6,7 +6,6 @@
 #include <cstdlib>
 
 #endif
-using namespace std;
 
 /***********************************************************************
  * NAME : 	void SeedRandom()

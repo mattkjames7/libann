@@ -8,10 +8,9 @@
 
 #include "activationfunctions.h"
 #include "costfunction.h"
-using namespace std;
 
 /***********************************************************************
- * NAME : 	void BackPropogate(w,b,Deltas,a,y,AFGrad,CFDelta,L1,L2,wGrad,bGrad)
+ * NAME : 	void BackPropagate(w,b,Deltas,a,y,AFGrad,CFDelta,L1,L2,wGrad,bGrad)
  * 
  * DESCRIPTION :  	Propagates errors backwards through the network in
  * 					order to calculate the gradients required for 
@@ -21,7 +20,7 @@ using namespace std;
  * 		MatrixArray		&w		Weight matrices
  * 		MatrixArray		&b		Bias matrices
  * 		MatrixArray		&Deltas	Deltas calculated by cost functions 
- * 								(these are calcualted in function, the 
+ * 								(these are calculated in function, the 
  * 								array is provided to save repeatedly 
  * 								recreating the array)
  * 		MatrixArray		&a		The outputs of each layer

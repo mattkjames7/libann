@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <omp.h>
 
-using namespace std;
 
 /***********************************************************************
  * NAME : Matrix

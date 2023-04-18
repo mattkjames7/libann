@@ -13,7 +13,6 @@
 //#include "thetagradient.h"
 //#include "updatetheta.h"
 #include "arraytools.h"
-using namespace std;
 
 
 class Network {

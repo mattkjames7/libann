@@ -9,7 +9,6 @@
 #include "costfunction.h"
 #include "readarray.h"
 
-using namespace std;
 
 /***********************************************************************
  * NAME : NetworkFunc

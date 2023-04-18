@@ -5,10 +5,6 @@
 
 
 
-using namespace std;
-
-
-
 
 /***********************************************************************
  * NAME : 	unsigned char * readArray(p,v,n)

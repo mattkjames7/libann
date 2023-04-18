@@ -6,8 +6,6 @@
 #include <algorithm>
 #include <string.h>
 
-using namespace std;
-
 /***********************************************************************
  * NAME : 			double AF_LeakyReLU(z)
  * 
