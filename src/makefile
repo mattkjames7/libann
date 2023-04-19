@@ -1,5 +1,5 @@
 # CFLAGS for CC
-CFLAGS=-lm -fPIC -std=c++17 -Wextra -O3 -lomp
+CFLAGS=-lm -fPIC -std=c++17 -Wextra -O3
 
 # Compiler
 
@@ -17,8 +17,8 @@ ifeq ($(OS),Linux)
 	CC=g++ $(CFLAGS)
 else
 	LIBFILE=libann.dylib
-	export LDFLAGS="-L/usr/local/opt/libomp/lib"
-  export CPPFLAGS="-I/usr/local/opt/libomp/include"
+	LDFLAGS="-L/usr/local/opt/libomp/lib" -lomp
+	CPPFLAGS="-I/usr/local/opt/libomp/include"
 	CCo=g++ -Xpreprocessor -fopenmp -c $(CFLAGS) $(CPPFLAGS)
 	CC=g++ -Xpreprocessor -fopenmp $(CFLAGS) $(CPPFLAGS)
 endif
