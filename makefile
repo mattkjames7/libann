@@ -48,9 +48,6 @@ test:
 
 clean:
 	cd test; make clean
-	-rm -v lib/libann.so
-	-rm -v lib/libann.dll
-	-rm -v lib/libann.dylib
 	-rm -v build/*.o
 	-rmdir -v build
 
