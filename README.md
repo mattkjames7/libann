@@ -1,17 +1,15 @@
 # libann
+[![Regression Tests](https://github.com/mattkjames7/libann/actions/workflows/regression-tests.yml/badge.svg)](https://github.com/mattkjames7/libann/actions/workflows/regression-tests.yml)
+
 Simple C++ neural network code used by some other libraries.
 
 ## Install
 
-In Linux and MacOS:
+In Linux, macOS and Windows:
 ```bash
-make
-sudo make install
-```
-
-In Windows (install TDM-GCC first):
-```cmd
-compile.bat
+cmake --preset ninja-release
+cmake --build --preset build-release
+cmake --install build/release
 ```
 
 ## Usage
@@ -50,3 +48,26 @@ The `NetworkFunc` object can then be used to make predictions when given input (
 ann->Predict(n,X,y);
 ```
 where `X` and `y` are 2D arrays (`float**`) of shape `(n,m)` and `(n,k)`, respectively. In this case, `n` is the number of samples, `m` is the number of features (input nodes) and `k` is the number of output nodes.
+
+## Regression Tests
+
+This repo now includes a GoogleTest-based baseline suite for regression checks before and after upgrades.
+
+Run from the repo root:
+
+```bash
+cmake --preset ninja-release
+cmake --build --preset build-release
+ctest --preset test-release
+```
+
+The tests are built with CMake/Ninja and executed with CTest. Test execution enforces deterministic single-thread behavior with `OMP_NUM_THREADS=1`.
+
+Current test modules in `test/`:
+
+- `matrix_ops_tests.cc`
+- `activation_tests.cc`
+- `loss_regularization_tests.cc`
+- `networkfunc_integration_tests.cc`
+
+The suite intentionally locks current behavior, including legacy numerical quirks, so behavior changes during upgrades are visible in test output.
