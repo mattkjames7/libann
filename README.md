@@ -5,15 +5,11 @@ Simple C++ neural network code used by some other libraries.
 
 ## Install
 
-In Linux and MacOS:
+In Linux, macOS and Windows:
 ```bash
-make
-sudo make install
-```
-
-In Windows (install TDM-GCC first):
-```cmd
-compile.bat
+cmake --preset ninja-release
+cmake --build --preset build-release
+cmake --install build/release
 ```
 
 ## Usage
@@ -60,11 +56,12 @@ This repo now includes a GoogleTest-based baseline suite for regression checks b
 Run from the repo root:
 
 ```bash
-make
-make test
+cmake --preset ninja-release
+cmake --build --preset build-release
+ctest --preset test-release
 ```
 
-`make test` builds and runs `test/ann_tests` with deterministic single-thread execution (`OMP_NUM_THREADS=1`).
+The tests are built with CMake/Ninja and executed with CTest. Test execution enforces deterministic single-thread behavior with `OMP_NUM_THREADS=1`.
 
 Current test modules in `test/`:
 
