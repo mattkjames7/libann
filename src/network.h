@@ -7,12 +7,13 @@
 #include "matrix.h"
 #include "matrixmath.h"
 #include "matrixarray.h"
-//#include "propagate.h"
 #include "costfunction.h"
 //#include "predict.h"
 //#include "thetagradient.h"
 //#include "updatetheta.h"
 #include "arraytools.h"
+
+namespace ann {
 
 
 class Network {
@@ -152,4 +153,7 @@ class Network {
 		void _AppendToArray(float*);
 		void _InitWeights();
 };		
+
+} // namespace ann
+
 #endif

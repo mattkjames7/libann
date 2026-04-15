@@ -1,5 +1,7 @@
 #include "networkfunc.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : NetworkFunc(L,s,sHiddenFunc,sOutFunc,sCostFunc)
  * 
@@ -360,3 +362,5 @@ void NetworkFunc::_RescaleOut(Matrix &m) {
 		}
 	}
 }
+
+} // namespace ann

@@ -5,7 +5,7 @@
 #include <ctime>
 #include <cstdlib>
 
-#endif
+namespace ann {
 
 /***********************************************************************
  * NAME : 	void SeedRandom()
@@ -106,4 +106,8 @@ float RandomLogRange(float R0, float R1);
  * 
  * ********************************************************************/
 float RandomLogRange(float *Range);
+
+} // namespace ann
+
+#endif
 

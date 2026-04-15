@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "matrix.h"
+
+namespace ann {
 /***********************************************************************
  * NAME : 	void softmax(z,sm)
  * 
@@ -19,4 +21,7 @@
  * 
  * ********************************************************************/
 void softmax(Matrix z, Matrix &sm);
+
+} // namespace ann
+
 #endif

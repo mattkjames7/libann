@@ -1,5 +1,7 @@
 #include "backpropagate.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 	void BackPropogate(w,b,Deltas,a,y,AFGrad,CFDelta,L1,L2,wGrad,bGrad)
  * 
@@ -94,4 +96,6 @@ void _BackPropDeltas(Matrix &dlin, Matrix &w, ActFunc AFGrad, Matrix &a, Matrix 
 		}
 	}
 	
-} 
+}
+
+} // namespace ann

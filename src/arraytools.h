@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+namespace ann {
+
 
 /***********************************************************************
  * NAME	: 		T* createArray(a,n)
@@ -99,5 +101,8 @@ template <typename T> void arrayCopy(T *in, T *out, int n);
 
 
 #include "arraytools.cc"
+
+
+} // namespace ann
 
 #endif

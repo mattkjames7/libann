@@ -8,6 +8,8 @@
 #include "activationfunctions.h"
 #include "matrixmath.h"
 
+namespace ann {
+
 
 /*******************************************************************
  * NAME : 		double crossEntropyCost(h,y,w,L1,L2)
@@ -100,4 +102,7 @@ void meanSquaredDelta(Matrix &h, Matrix &y, ActFunc InvAFGrad, Matrix &Deltas);
 /* these typedefs will be used so that we can switch cost functions */
 typedef double (*CostFunc)(Matrix&,Matrix&,MatrixArray&,double, double);
 typedef double (*CostFuncDelta)(Matrix&,Matrix&,ActFunc,Matrix&);
+
+} // namespace ann
+
 #endif

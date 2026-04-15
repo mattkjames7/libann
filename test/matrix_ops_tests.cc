@@ -3,6 +3,8 @@
 
 #include "test_helpers.h"
 
+using namespace ann;
+
 TEST(MatrixOps, MatrixDotLegacyFixture) {
 	Matrix ma(2,3);
 	Matrix mb(3,4);

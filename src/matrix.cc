@@ -1,5 +1,7 @@
 #include "matrix.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 			Matrix::Matrix(inshape)
  * 
@@ -430,3 +432,5 @@ void Matrix::ReturnMatrix(float **outdata) {
 		}
 	}
 }
+
+} // namespace ann

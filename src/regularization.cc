@@ -1,5 +1,7 @@
 #include "regularization.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 	float L1Regularization(w,L1,m)
  * 
@@ -101,5 +103,5 @@ void ApplyRegGradToMatrix(MatrixArray &w, MatrixArray &wGrad,double L1, double L
 	}
 	
 }
-	
 
+} // namespace ann

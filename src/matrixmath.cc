@@ -1,5 +1,7 @@
 #include "matrixmath.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 			_Multab(a,b,out)
  * 
@@ -760,3 +762,5 @@ void AddBiasVectorToMatrix(Matrix &a, Matrix &b) {
 		}
 	}		
 }
+
+} // namespace ann

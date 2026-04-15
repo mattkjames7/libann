@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <omp.h>
 
+namespace ann {
+
 
 /***********************************************************************
  * NAME : Matrix
@@ -74,5 +76,8 @@ class Matrix {
 		bool DeleteData;
 		
 };
+
+
+} // namespace ann
 
 #endif

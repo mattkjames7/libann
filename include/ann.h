@@ -10,6 +10,8 @@
 #include <omp.h>
 #include <random>
 
+namespace ann {
+
 
 /***********************************************************************
  * NAME : 			double AF_LeakyReLU(z)
@@ -1215,5 +1217,8 @@ void ApplyRegGradToMatrix(MatrixArray &w, MatrixArray &wGrad,double L1, double L
  * 
  * ********************************************************************/
 void softmax(Matrix z, Matrix &sm);
+
+
+} // namespace ann
 
 #endif

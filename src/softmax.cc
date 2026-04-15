@@ -1,5 +1,7 @@
 #include "softmax.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 	void softmax(z,sm)
  * 
@@ -39,6 +41,5 @@ void softmax(Matrix z, Matrix &sm) {
 		}
 	}
 }
-	
-	
-	
+
+} // namespace ann

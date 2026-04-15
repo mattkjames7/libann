@@ -9,6 +9,8 @@
 #include "costfunction.h"
 #include "readarray.h"
 
+namespace ann {
+
 
 /***********************************************************************
  * NAME : NetworkFunc
@@ -84,5 +86,8 @@ class NetworkFunc {
 		void _RescaleOut(Matrix &);
 };
 
+
+
+} // namespace ann
 
 #endif

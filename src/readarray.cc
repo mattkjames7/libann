@@ -1,5 +1,7 @@
 #include "readarray.h"
 
+namespace ann {
+
 
 
 /***********************************************************************
@@ -185,3 +187,5 @@ unsigned char * readArray(unsigned char *p, float ***v, int *shape) {
 	}
 	return p;
 }
+
+} // namespace ann
