@@ -1,7 +1,5 @@
 include(GNUInstallDirs)
 
-find_package(OpenMP REQUIRED)
-
 add_library(ann SHARED
     activationfunctions.cc
     backpropagate.cc
