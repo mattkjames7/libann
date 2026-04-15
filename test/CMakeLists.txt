@@ -20,6 +20,10 @@ add_executable(ann_tests
     test_main.cc
 )
 
+set_target_properties(ann_tests PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+)
+
 target_include_directories(ann_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(ann_tests PRIVATE ann GTest::gtest)
 
@@ -31,5 +35,6 @@ include(GoogleTest)
 gtest_discover_tests(
     ann_tests
     DISCOVERY_TIMEOUT 30
+    WORKING_DIRECTORY $<TARGET_FILE_DIR:ann_tests>
     PROPERTIES ENVIRONMENT "OMP_NUM_THREADS=1"
 )
