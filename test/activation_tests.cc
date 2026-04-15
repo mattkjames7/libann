@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include <ann.h>
 
+using namespace ann;
+
 TEST(ActivationFunctions, BasicValues) {
 	EXPECT_DOUBLE_EQ(AF_ReLU(-2.5), 0.0);
 	EXPECT_DOUBLE_EQ(AF_ReLU(2.5), 2.5);

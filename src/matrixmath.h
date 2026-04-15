@@ -7,6 +7,8 @@
 #include <omp.h>
 #include "activationfunctions.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 			MatrixMultiply(a,b,aT,bT,out)
  * 
@@ -123,4 +125,7 @@ void ApplyFunctionToMatrix(Matrix &a, ActFunc AF);
  *
  * ********************************************************************/
 void AddBiasVectorToMatrix(Matrix &a, Matrix &b);
+
+} // namespace ann
+
 #endif

@@ -1,4 +1,6 @@
 #include "network.h"
+
+namespace ann {
 //This constructor will be used to initialize the network
 Network::Network(int nLayers, int *Layers, float L1, float L2, bool FT, int *ActFunctions, int CostFunction) {
 	/*******************************************************************
@@ -740,3 +742,5 @@ void Network::Gets(int *sout) {
 		sout[i] = s[i];
 	}
 }
+
+} // namespace ann

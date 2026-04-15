@@ -5,6 +5,8 @@
 
 #include "test_helpers.h"
 
+using namespace ann;
+
 TEST(SoftmaxAndCliplog, ProbabilityAndFiniteChecks) {
 	Matrix z(2,3);
 	Matrix sm(2,3);

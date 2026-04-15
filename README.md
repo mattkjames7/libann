@@ -17,6 +17,8 @@ cmake --install build/release
 This code can be included in other C++ projects:
 ```cpp
 #include <ann.h>
+
+using namespace ann;
 ```
 and compile with the ```-lann -lfopenmp -lm``` flags.
 
@@ -30,14 +32,14 @@ std::string fileName = "path/to/file.bin";
 std::string hiddenFunc = "softplus";
 std::string outFunc = "linear";
 std::string costFunc = "mean_squared";
-NetworkFunc *ann = new NetworkFunc(	fileName.c_str(),
+NetworkFunc *model = new NetworkFunc(	fileName.c_str(),
 									hiddenFunc.c_str(),
 									outFunc.c_str(),
 									costFunc.c_str());
 
 /* or memory location */
 unsigned char *ptr = _binary_mem_location_bin;
-NetworkFunc *ann = new NetworkFunc(	ptr,
+NetworkFunc *model = new NetworkFunc(	ptr,
 									hiddenFunc.c_str(),
 									outFunc.c_str(),
 									costFunc.c_str());
@@ -45,7 +47,7 @@ NetworkFunc *ann = new NetworkFunc(	ptr,
 
 The `NetworkFunc` object can then be used to make predictions when given input (`X`) and output (`y`) matrices, e.g.:
 ```cpp
-ann->Predict(n,X,y);
+model->Predict(n,X,y);
 ```
 where `X` and `y` are 2D arrays (`float**`) of shape `(n,m)` and `(n,k)`, respectively. In this case, `n` is the number of samples, `m` is the number of features (input nodes) and `k` is the number of output nodes.
 

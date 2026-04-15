@@ -1,5 +1,7 @@
 #include "boxcox.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 	void BoxCox(n,x,lambda,shift,mu,sig,xt)
  * 
@@ -127,3 +129,5 @@ float ReverseBoxCox(float xt, float lambda, float shift, float mu, float sig) {
 	x = powf(x*lambda + 1.0,1.0/lambda) - shift;
 	return x;
 }
+
+} // namespace ann

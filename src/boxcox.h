@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#endif
+namespace ann {
 
 /***********************************************************************
  * NAME : 	BoxCox
@@ -80,3 +80,7 @@ void ReverseBoxCox(int n, float *xt, float lambda, float shift, float mu, float 
  * 
  * ********************************************************************/
 float ReverseBoxCox(float xt, float lambda, float shift, float mu, float sig);
+
+} // namespace ann
+
+#endif

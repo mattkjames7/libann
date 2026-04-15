@@ -5,9 +5,10 @@
 #include "matrix.h"
 #include "matrixmath.h"
 #include "matrixarray.h"
-
 #include "activationfunctions.h"
 #include "costfunction.h"
+
+namespace ann {
 
 /***********************************************************************
  * NAME : 	void BackPropagate(w,b,Deltas,a,y,AFGrad,CFDelta,L1,L2,wGrad,bGrad)
@@ -60,5 +61,7 @@ void BackPropagate(MatrixArray &w, MatrixArray &b,
  * 
  * ********************************************************************/
 void _BackPropDeltas(Matrix &dlin, Matrix &w, ActFunc AFGrad, Matrix &a, Matrix &dlout);
-#endif
 
+} // namespace ann
+
+#endif
