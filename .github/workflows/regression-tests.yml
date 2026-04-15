@@ -8,15 +8,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    name: Build and run regression tests
+  test-ubuntu:
+    name: Build and test (ubuntu)
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Install build and test dependencies
+      - name: Install Linux dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential cmake ninja-build
@@ -28,4 +28,75 @@ jobs:
         run: cmake --build --preset build-release
 
       - name: Run regression tests
+        run: ctest --preset test-release
+
+  test-macos:
+    name: Build and test (macos)
+    runs-on: macos-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Resolve macOS toolchain
+        run: |
+          set -e
+
+          MISSING=()
+          command -v cmake >/dev/null || MISSING+=(cmake)
+          command -v ninja >/dev/null || MISSING+=(ninja)
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            brew install "${MISSING[@]}"
+          fi
+
+          GCC_BIN="$(command -v gcc-14 || command -v gcc-13 || command -v gcc-12 || true)"
+          GXX_BIN="$(command -v g++-14 || command -v g++-13 || command -v g++-12 || true)"
+
+          if [ -z "$GCC_BIN" ] || [ -z "$GXX_BIN" ]; then
+            brew install gcc
+            GCC_PREFIX="$(brew --prefix gcc)"
+            GCC_BIN="$(ls -1 "$GCC_PREFIX"/bin/gcc-* | tail -n 1)"
+            GXX_BIN="$(ls -1 "$GCC_PREFIX"/bin/g++-* | tail -n 1)"
+          fi
+
+          echo "CC=$GCC_BIN" >> "$GITHUB_ENV"
+          echo "CXX=$GXX_BIN" >> "$GITHUB_ENV"
+
+      - name: Configure project
+        run: cmake --preset ninja-release
+
+      - name: Build project
+        run: cmake --build --preset build-release
+
+      - name: Run regression tests
+        run: ctest --preset test-release
+
+  test-windows-msys2:
+    name: Build and test (windows-msys2)
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up MSYS2
+        uses: msys2/setup-msys2@cafece8e6baf9247cf9b1bf95097b0b983cc558d # v2.31.0
+        with:
+          msystem: MINGW64
+          update: true
+          install: >-
+            mingw-w64-x86_64-toolchain
+            mingw-w64-x86_64-cmake
+            mingw-w64-x86_64-ninja
+
+      - name: Configure project
+        shell: msys2 {0}
+        run: cmake --preset ninja-release
+
+      - name: Build project
+        shell: msys2 {0}
+        run: cmake --build --preset build-release
+
+      - name: Run regression tests
+        shell: msys2 {0}
         run: ctest --preset test-release
