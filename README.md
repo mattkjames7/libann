@@ -50,3 +50,25 @@ The `NetworkFunc` object can then be used to make predictions when given input (
 ann->Predict(n,X,y);
 ```
 where `X` and `y` are 2D arrays (`float**`) of shape `(n,m)` and `(n,k)`, respectively. In this case, `n` is the number of samples, `m` is the number of features (input nodes) and `k` is the number of output nodes.
+
+## Regression Tests
+
+This repo now includes a GoogleTest-based baseline suite for regression checks before and after upgrades.
+
+Run from the repo root:
+
+```bash
+make
+make test
+```
+
+`make test` builds and runs `test/ann_tests` with deterministic single-thread execution (`OMP_NUM_THREADS=1`).
+
+Current test modules in `test/`:
+
+- `matrix_ops_tests.cc`
+- `activation_tests.cc`
+- `loss_regularization_tests.cc`
+- `networkfunc_integration_tests.cc`
+
+The suite intentionally locks current behavior, including legacy numerical quirks, so behavior changes during upgrades are visible in test output.
