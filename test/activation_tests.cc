@@ -26,7 +26,19 @@ TEST(ActivationFunctions, BoundaryAndLookupCases) {
 	EXPECT_DOUBLE_EQ(AF_LeakyReLUGradient(0.0), 0.01);
 	EXPECT_DOUBLE_EQ(AF_SoftplusGradient(60.0), 1.0);
 
-	EXPECT_EQ(AFFromString("relu"), AF_ReLU);
-	EXPECT_EQ(AFFromString("linear"), AF_Linear);
-	EXPECT_EQ(AFFromString("unknown_function"), AF_Sigmoid);
+	const ActFunc relu = AFFromString("relu");
+	const ActFunc linear = AFFromString("linear");
+	const ActFunc fallback = AFFromString("unknown_function");
+
+	ASSERT_NE(relu, nullptr);
+	ASSERT_NE(linear, nullptr);
+	ASSERT_NE(fallback, nullptr);
+
+	// Compare behavior instead of raw function-pointer identity across modules.
+	EXPECT_DOUBLE_EQ(relu(-2.0), AF_ReLU(-2.0));
+	EXPECT_DOUBLE_EQ(relu(3.5), AF_ReLU(3.5));
+	EXPECT_DOUBLE_EQ(linear(-2.0), AF_Linear(-2.0));
+	EXPECT_DOUBLE_EQ(linear(3.5), AF_Linear(3.5));
+	EXPECT_DOUBLE_EQ(fallback(-2.0), AF_Sigmoid(-2.0));
+	EXPECT_DOUBLE_EQ(fallback(3.5), AF_Sigmoid(3.5));
 }
