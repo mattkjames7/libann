@@ -1,4 +1,6 @@
 # libann
+[![Regression Tests](https://github.com/mattkjames7/libann/actions/workflows/regression-tests.yml/badge.svg)](https://github.com/mattkjames7/libann/actions/workflows/regression-tests.yml)
+
 Simple C++ neural network code used by some other libraries.
 
 ## Install
