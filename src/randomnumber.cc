@@ -1,5 +1,7 @@
 #include "randomnumber.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 	void SeedRandom()
  * 
@@ -117,3 +119,5 @@ float RandomLogRange(float *Range) {
 	float R1 = log10f(Range[1]);
 	return powf(10.0,(R1-R0)*(((float) rand()) / ((float) RAND_MAX)) + R0);
 }
+
+} // namespace ann

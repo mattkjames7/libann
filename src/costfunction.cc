@@ -1,5 +1,7 @@
 #include "costfunction.h"
 
+namespace ann {
+
 /*******************************************************************
  * NAME : 		double crossEntropyCost(h,y,w,L1,L2)
  * 
@@ -163,3 +165,4 @@ void meanSquaredDelta(Matrix &h, Matrix &y, ActFunc InvAFGrad, Matrix &Deltas) {
 	ApplyFunctionToMatrix(Deltas,InvAFGrad);
 }
 
+} // namespace ann

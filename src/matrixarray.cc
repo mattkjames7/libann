@@ -1,5 +1,7 @@
 #include "matrixarray.h"
 
+namespace ann {
+
 
 
 /***********************************************************************
@@ -137,3 +139,5 @@ void MatrixArray::RandomInit(float Range) {
 		}
 	}
 }
+
+} // namespace ann

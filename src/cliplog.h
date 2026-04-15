@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <algorithm>
 
+namespace ann {
+
 
 /***********************************************************************
  * NAME : 	double cliplog(x,min)
@@ -21,4 +23,7 @@
  * 	
  * ********************************************************************/
 double cliplog(double x, double mn);
+
+} // namespace ann
+
 #endif

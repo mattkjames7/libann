@@ -6,6 +6,8 @@
 #include <cstdlib>
 #include "matrix.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : Matrix
  * 
@@ -36,5 +38,8 @@ class MatrixArray {
 	private:
 
 };
+
+
+} // namespace ann
 
 #endif

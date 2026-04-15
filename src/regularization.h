@@ -7,6 +7,8 @@
 #include "matrixarray.h"
 #include <omp.h>
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 	float L1Regularization(w,L1,m)
  * 
@@ -55,4 +57,7 @@ float L2Regularization(MatrixArray &w, float L2, int m);
  * 
  * ********************************************************************/
 void ApplyRegGradToMatrix(MatrixArray &w, MatrixArray &wGrad,double L1, double L2, int m);
+
+} // namespace ann
+
 #endif

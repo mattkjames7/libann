@@ -6,6 +6,8 @@
 #include <algorithm>
 #include <string.h>
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 			double AF_LeakyReLU(z)
  * 
@@ -190,5 +192,8 @@ typedef double (*ActFunc)(double);
  * ********************************************************************/
 ActFunc AFFromString(const char *str);
 
+
+
+} // namespace ann
 
 #endif

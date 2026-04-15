@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+namespace ann {
+
 
 
 
@@ -84,5 +86,8 @@ unsigned char * readArray(unsigned char *p, int **v, int *n);
  *  
  * ********************************************************************/
 unsigned char * readArray(unsigned char *p, float ***v, int *shape);
+
+
+} // namespace ann
 
 #endif

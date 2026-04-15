@@ -3,7 +3,7 @@
 
 #include <ann.h>
 
-inline void FillMatrixFromArray(Matrix &m, const double *vals, int nRows, int nCols) {
+inline void FillMatrixFromArray(ann::Matrix &m, const double *vals, int nRows, int nCols) {
 	int i;
 	int j;
 	for (i = 0; i < nRows; i++) {

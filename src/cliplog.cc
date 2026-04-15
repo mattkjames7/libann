@@ -1,5 +1,7 @@
 #include "cliplog.h"
 
+namespace ann {
+
 
 /***********************************************************************
  * NAME : 	double cliplog(x,min)
@@ -22,3 +24,5 @@ double cliplog(double x, double mn) {
 	 * a good value for min is 1e-40*/
 	return log(std::max(x,mn));
 }
+
+} // namespace ann

@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include <ann.h>
 
+using namespace ann;
+
 TEST(NetworkFuncIntegration, DeterministicForwardPass) {
 	int s[] = {2, 2, 1};
 	NetworkFunc ann(3, s, "linear", "linear", "mean_squared");

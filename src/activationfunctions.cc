@@ -1,5 +1,7 @@
 #include "activationfunctions.h"
 
+namespace ann {
+
 /***********************************************************************
  * NAME : 			double AF_LeakyReLU(z)
  * 
@@ -255,3 +257,5 @@ ActFunc AFFromString(const char *str) {
 		return AF_Sigmoid;
 	}
 }
+
+} // namespace ann
