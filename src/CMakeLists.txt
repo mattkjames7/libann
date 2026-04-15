@@ -1,6 +1,6 @@
 include(GNUInstallDirs)
 
-find_package(OpenMP)
+find_package(OpenMP REQUIRED)
 
 add_library(ann SHARED
     activationfunctions.cc
@@ -32,9 +32,7 @@ target_include_directories(ann
         ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-if(OpenMP_CXX_FOUND)
-    target_link_libraries(ann PRIVATE OpenMP::OpenMP_CXX)
-endif()
+target_link_libraries(ann PUBLIC OpenMP::OpenMP_CXX)
 
 install(TARGETS ann
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}

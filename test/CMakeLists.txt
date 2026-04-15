@@ -1,8 +1,8 @@
 include(FetchContent)
-find_package(OpenMP)
+find_package(OpenMP REQUIRED)
 
-set(INSTALL_GTEST OFF)
-set(BUILD_GMOCK OFF)
+set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 FetchContent_Declare(
@@ -26,10 +26,7 @@ set_target_properties(ann_tests PROPERTIES
 
 target_include_directories(ann_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(ann_tests PRIVATE ann GTest::gtest)
-
-if(OpenMP_CXX_FOUND)
-    target_link_libraries(ann_tests PRIVATE OpenMP::OpenMP_CXX)
-endif()
+target_link_libraries(ann_tests PRIVATE OpenMP::OpenMP_CXX)
 
 include(GoogleTest)
 gtest_discover_tests(
