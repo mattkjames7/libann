@@ -22,6 +22,12 @@ set_target_properties(ann PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
 )
 
+# The public API does not yet use explicit __declspec(dllexport)
+# annotations, so generate the DLL export table for native MSVC builds.
+if(WIN32)
+    set_target_properties(ann PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
+endif()
+
 target_include_directories(ann
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
