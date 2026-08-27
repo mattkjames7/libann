@@ -143,13 +143,13 @@ void _MultaTbT(Matrix &a, Matrix&b, Matrix &out) {
  *
  * ********************************************************************/
 void MatrixMultiply(Matrix &a, Matrix &b, bool aT, bool bT, Matrix &out) {
-	if (not aT && not bT) {
+	if (!aT && !bT) {
 		//no transpose
 		_Multab(a,b,out);
-	} else if (aT && not bT) {
+	} else if (aT && !bT) {
 		//only aT
 		_MultaTb(a,b,out);
-	} else if (not aT && bT) {
+	} else if (!aT && bT) {
 		//only bT
 		_MultabT(a,b,out);
 	} else {
@@ -355,13 +355,13 @@ void _DotaTbT(Matrix &a, Matrix &b, Matrix &out) {
  *
  * ********************************************************************/
 void MatrixDot(Matrix &a, Matrix &b, bool aT, bool bT, Matrix &out) {
-	if (not aT && not bT) {
+	if (!aT && !bT) {
 		//no transpose
 		_Dotab(a,b,out);
-	} else if (aT && not bT) {
+	} else if (aT && !bT) {
 		//only aT
 		_DotaTb(a,b,out);
-	} else if (not aT && bT) {
+	} else if (!aT && bT) {
 		//only bT
 		_DotabT(a,b,out);
 	} else {
@@ -507,13 +507,13 @@ void _SubaTbT(Matrix &a, Matrix &b, Matrix &out) {
  *
  * ********************************************************************/
 void MatrixSubtract(Matrix &a, Matrix &b, bool aT, bool bT, Matrix &out) {
-	if (not aT && not bT) {
+	if (!aT && !bT) {
 		//no transpose
 		_Subab(a,b,out);
-	} else if (aT && not bT) {
+	} else if (aT && !bT) {
 		//only aT
 		_SubaTb(a,b,out);
-	} else if (not aT && bT) {
+	} else if (!aT && bT) {
 		//only bT
 		_SubabT(a,b,out);
 	} else {
@@ -658,13 +658,13 @@ void _AddaTbT(Matrix &a, Matrix &b, Matrix &out) {
  *
  * ********************************************************************/
 void MatrixAdd(Matrix &a, Matrix &b, bool aT, bool bT, Matrix &out) {
-	if (not aT && not bT) {
+	if (!aT && !bT) {
 		//no transpose
 		_Addab(a,b,out);
-	} else if (aT && not bT) {
+	} else if (aT && !bT) {
 		//only aT
 		_AddaTb(a,b,out);
-	} else if (not aT && bT) {
+	} else if (!aT && bT) {
 		//only bT
 		_AddabT(a,b,out);
 	} else {
