@@ -26,7 +26,7 @@ float L1Regularization(MatrixArray &w, float L1, int m) {
 		nk = w.matrix[i]->shape[1];
 		for (j=0;j<nj;j++) {
 			for (k=0;k<nk;k++) {
-				J += fabsf(w.matrix[i]->data[j][k]);
+				J += fabs(w.matrix[i]->data[j][k]);
 			}
 		}
 	}
